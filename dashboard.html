@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.N.T. - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .storage-bar {
+            background-color: #bdc3c7;
+            border-radius: 5px;
+            height: 40px;
+            overflow: hidden;
+            margin: 10px 0;
+            position: relative;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .storage-bar .filled {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, #00c6ff, #0072ff); /* Blue gradient */
+            background-size: 200% 200%;
+            animation: water-flow 3s linear infinite; /* Continuous flowing animation */
+        }
+
+        @keyframes water-flow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Alert symbol styling */
+        .alert {
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            display: none; /* Initially hidden */
+        }
+
+        .alert.show {
+            display: block; /* Show alert when needed */
+        }
+
+        button {
+            padding: 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px); /* Float effect */
+        }
+
+        @media (max-width: 600px) {
+            button {
+                padding: 10px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A.N.T. Dashboard</h1>
+    </header>
+
+    <section>
+        <h2>Welcome, <span id="username-display">[Username]</span></h2>
+        <p>Monitor your network traffic and storage below:</p>
+
+        <div class="dashboard">
+            <h3>Traffic Overview</h3>
+            <p><strong>Active Connections:</strong> 234</p>
+            <p><strong>Data Transferred:</strong> 1.5 TB</p>
+            <p><strong>Alerts:</strong> No issues detected.</p>
+        </div>
+
+        <div class="storage-overview">
+            <h3>Storage Statistics</h3>
+            <div class="storage-bar" id="storage-bar">
+                <div class="filled" id="storage-filled"></div>
+                <div class="alert" id="storage-alert">⚠️ Alert: 75% Storage Filled!</div>
+            </div>
+            <p>Storage Used: <strong><span id="storage-used">0</span> MB</strong> / 200 MB</p>
+            <p>Available Storage: <strong><span id="storage-available">200</span> MB</strong></p>
+        </div>
+
+        <div class="alert-section">
+            <h3>Recent Alerts</h3>
+            <ul>
+                <li>No new alerts.</li>
+                <li>System health check: Good.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 A.N.T. System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Set the storage filled amount
+        let usedStorage = 150; // MB used
+        const totalStorage = 200; // MB total
+        const filledPercentage = (usedStorage / totalStorage) * 100;
+
+        // Set the storage filled div width based on the used storage
+        const storageFilled = document.getElementById('storage-filled');
+        storageFilled.style.width = filledPercentage + '%';
+        
+        // Set storage display
+        document.getElementById('storage-used').textContent = usedStorage;
+        document.getElementById('storage-available').textContent = totalStorage - usedStorage;
+
+        // Simulate getting the username
+        const username = 'User123'; // Replace with dynamic username retrieval
+        document.getElementById('username-display').textContent = username;
+
+        // Show alert if storage is above 75%
+        if (usedStorage >= 150) { // 75% of 200MB
+            document.getElementById('storage-alert').classList.add('show');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.N.T. - Welcome</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #2c3e50, #4ca1af);
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 20px 0;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin: 10px 0;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .welcome-message {
+            font-size: 1.2rem;
+            margin: 20px;
+            animation: fadeIn 2.5s ease-in;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            animation: fadeIn 3s ease-in;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05); /* Slightly grow button on hover */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.8rem;
+            color: #ecf0f1;
+            animation: fadeIn 3.5s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to A.N.T.!</h1>
+    <h2>Hello, <span id="username-display">[Username]</span></h2>
+    <p class="welcome-message">Your network traffic monitoring system is ready to help you.</p>
+    <button onclick="goToDashboard()">Go to Dashboard</button>
+
+    <footer class="footer">
+        &copy; 2024 A.N.T. System. All rights reserved.
+    </footer>
+
+    <script>
+        // Simulate getting the username
+        const username = 'User123'; // Replace with dynamic username retrieval
+        document.getElementById('username-display').textContent = username;
+
+        // Function to redirect to the dashboard
+        function goToDashboard() {
+            window.location.href = 'dashboard.html'; // Change to your dashboard URL
+        }
+    </script>
+</body>
+</html>

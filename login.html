@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.N.T. - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>A.N.T. - User Login</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section>
+        <h2>Login to Access Your Dashboard</h2>
+        <form action="welcome.html" method="POST" id="login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 A.N.T. System. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            // Simulate nearby network signals
+            const signals = [
+                { name: 'Jio', ping: '45ms' },
+                { name: 'Airtel', ping: '30ms' },
+                { name: 'BSNL', ping: '60ms' },
+            ];
+            let signalInfo = 'Nearby Networks:\n';
+            signals.forEach(signal => {
+                signalInfo += `${signal.name} - Ping: ${signal.ping}\n`;
+            });
+            alert(signalInfo); // Show alert with nearby network signals
+            window.location.href = 'welcome.html'; // Redirect to welcome page
+        });
+    </script>
+</body>
+</html>

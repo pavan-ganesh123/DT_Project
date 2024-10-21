@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A.N.T. - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #8e44ad, #3498db);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4em;
+            animation: bounce 1.5s infinite;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+
+        .feature {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+
+        .feature:hover {
+            transform: scale(1.05); /* Float effect */
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <h1>A.N.T. System</h1>
+    <p>Effortlessly manage your network traffic.</p>
+    <div class="feature">Feature 1: Real-Time Analysis</div>
+    <div class="feature">Feature 2: Secure Data Storage</div>
+    <div class="feature">Feature 3: User-Friendly Interface</div>
+</body>
+</html>
